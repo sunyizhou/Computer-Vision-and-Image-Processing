@@ -1,0 +1,13 @@
+Report 
+
+I use sys.argv[1] to satisfy the requirement ¡°using command \python stitch.py
+[datadirectory]".¡±
+
+After that, I add a large black background behind image(line 67-70). In the line 77-82, I start to use AKAZE algorithm to detect and compute the key point and descriptor.
+
+For the next step, I use two of double for loop to computer match point between image 1 and 2, image 2 and 3 and store in match_left_list[] and match_right_list[] (line 84-97).
+
+For the line 111 ¨C 175 and 178 ¨C 231, I use RANSAC algorithm in order to filter to obtain a suitable projection transformation matrix. In line 114,115,125,126,131,134, I used the method I defined in line 9 ¨C 41, it randomly make a tuple from matched list and computer its projection transformation matrix.
+
+
+For the result, I used os.path.join(data_dir, "panorama.jpg") and cv2.imwrite(save_path, bg_img_middle) to store panorama in the address where the three images stored.
